@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor EUR ⇄ USD</title>
+</head>
+<body>
+  <h1>Conversor de Moneda</h1>
+
+  <!-- USD → EUR -->
+  <h2>Dòlars a Euros 💵➡️💶</h2>
+  <label for="usd">Import en USD:</label>
+  <input type="number" id="usd" oninput="convertirAeuros()">
+  <p id="resultat-eur">Import en EUR: –</p>
+
+  <!-- EUR → USD -->
+  <h2>Euros a Dòlars 💶➡️💵</h2>
+  <label for="eur">Import en EUR:</label>
+  <input type="number" id="eur" oninput="convertirAusd()">
+  <p id="resultat-usd">Import en USD: –</p>
+
+  <script>
+    const eurToUsd = 1.1722;
+    const usdToEur = 0.8531;
+
+    function convertirAeuros() {
+      const usd = parseFloat(document.getElementById('usd').value);
+      const eur = isNaN(usd) ? '–' : (usd * usdToEur).toFixed(2) + ' €';
+      document.getElementById('resultat-eur').textContent = 'Import en EUR: ' + eur;
+    }
+
+    function convertirAusd() {
+      const eur = parseFloat(document.getElementById('eur').value);
+      const usd = isNaN(eur) ? '–' : (eur * eurToUsd).toFixed(2) + ' $';
+      document.getElementById('resultat-usd').textContent = 'Import en USD: ' + usd;
+    }
+  </script>
+</body>
+</html>
